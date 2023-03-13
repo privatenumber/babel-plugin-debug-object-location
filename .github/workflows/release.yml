@@ -8,6 +8,9 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
@@ -19,7 +22,7 @@ jobs:
         node-version-file: '.nvmrc'
 
     - name: Setup pnpm
-      uses: pnpm/action-setup@v2.2.2
+      uses: pnpm/action-setup@v2
       with:
         version: 7
         run_install: true
