@@ -33,22 +33,23 @@ Let's say you have an object literal in your code that gets passed around in you
 // my-file.ts
 
 const myObject = {
-    value: Math.random()
+    valueA: someVariable,
+    valueB: Math.random()
 }
 
 // `someFunction` passes `myObject` around and gets referenced from many places
 someFunction(myObject)
 
 // can even be mutated
-myObject.anotherValue = 123
+myObject.valueB = 123
 ```
 
 While debugging, you encouter it in the stack-trace:
 
 ```ts
 const object = {
-    value: 365,
-    anotherValue: 123
+    valueA: 365,
+    valueB: 123
 }
 ```
 
@@ -101,7 +102,7 @@ The plugin works by transforming the code when it encounters an object or array 
 For example, given the following code:
 ```ts
 const myObject = {
-    value: Math.random()
+    value: 123
 }
 ```
 
@@ -111,7 +112,7 @@ import { register } from 'babel-plugin-debug-object-location'
 
 const myObject = register(
     {
-        value: Math.random()
+        value: 123
     },
     '/my/file/path.ts'
 )
