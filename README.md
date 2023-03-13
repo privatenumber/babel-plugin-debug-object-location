@@ -38,13 +38,17 @@ const myObject = {
 
 // `someFunction` passes `myObject` around and gets referenced from many places
 someFunction(myObject)
+
+// can even be mutated
+myObject.anotherValue = 123
 ```
 
 While debugging, you encouter it in the stack-trace:
 
 ```ts
 const object = {
-    value: 365
+    value: 365,
+    anotherValue: 123
 }
 ```
 
