@@ -53,10 +53,10 @@ const object = {
 }
 ```
 
-You want to learn more about it by looking at the file it was initialized in, but since the contents are generated at run-time, you can't search your codebase for it.
+You want to learn more about it by looking at the file it was initialized in, but since the contents are generated at run-time, you can't search for it in your codebase.
 
 
-Using the object-registry plugin, you can now look up the object in the  `objectRegistry` global to find out which file it was instantiated in:
+Using this plugin, you can now look up the object in the  `objectRegistry` global to find out which file it was instantiated in:
 
 ```js
 objectRegistry.find(object)
