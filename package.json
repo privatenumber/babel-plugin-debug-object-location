@@ -1,0 +1,72 @@
+{
+	"name": "babel-plugin-debug-object-location",
+	"version": "0.0.0-semantic-release",
+	"description": "Babel plugin to help you determine where an object or array was instantiated",
+	"keywords": [
+		"babel",
+		"plugin",
+		"debug",
+		"object",
+		"location"
+	],
+	"license": "MIT",
+	"repository": "privatenumber/babel-plugin-debug-object-location",
+	"funding": "https://github.com/privatenumber/babel-plugin-debug-object-location?sponsor=1",
+	"author": {
+		"name": "Hiroki Osame",
+		"email": "hiroki.osame@gmail.com"
+	},
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"exports": {
+		".": "./dist/index.cjs",
+		"./registry": "./dist/registry.mjs"
+	},
+	"imports": {
+		"#babel-plugin-debug-object-location": {
+			"types": "./src/index.ts",
+			"development": "./src/index.ts",
+			"default": "./dist/index.mjs"
+		},
+		"#babel-plugin-debug-object-location/registry": {
+			"types": "./src/registry.ts",
+			"development": "./src/registry.ts",
+			"default": "./dist/registry.mjs"
+		}
+	},
+	"scripts": {
+		"lint": "eslint --cache .",
+		"build": "pkgroll --target node12.20",
+		"test": "pnpm build && tsx tests",
+		"dev": "tsx watch --conditions=development tests",
+		"type-check": "tsc --noEmit",
+		"prepack": "pnpm build && clean-pkg-json"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.21.0",
+		"@babel/helper-plugin-utils": "^7.20.2",
+		"@pvtnbr/eslint-config": "^0.33.0",
+		"@types/babel__core": "^7.20.0",
+		"@types/babel__helper-plugin-utils": "^7.10.0",
+		"@types/node": "^18.15.1",
+		"clean-pkg-json": "^1.2.0",
+		"eslint": "^8.36.0",
+		"manten": "^0.7.0",
+		"pkgroll": "^1.9.0",
+		"tsx": "^3.12.5",
+		"typescript": "^4.9.5"
+	},
+	"eslintConfig": {
+		"extends": "@pvtnbr/eslint-config",
+		"overrides": [{
+			"files": "*.md/*",
+			"rules": {
+				"unicorn/no-array-callback-reference": "off"
+			}
+		}]
+	}
+}
