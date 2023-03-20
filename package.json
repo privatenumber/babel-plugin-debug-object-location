@@ -1,0 +1,41 @@
+{
+  "name": "babel-plugin-debug-object-location",
+  "version": "0.0.0-semantic-release",
+  "description": "Babel plugin to help you determine where an object or array was instantiated",
+  "keywords": [
+    "babel",
+    "plugin",
+    "debug",
+    "object",
+    "location"
+  ],
+  "license": "MIT",
+  "repository": "privatenumber/babel-plugin-debug-object-location",
+  "funding": "https://github.com/privatenumber/babel-plugin-debug-object-location?sponsor=1",
+  "author": {
+    "name": "Hiroki Osame",
+    "email": "hiroki.osame@gmail.com"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": "./dist/index.cjs",
+    "./registry": "./dist/registry.mjs"
+  },
+  "imports": {
+    "#babel-plugin-debug-object-location": {
+      "types": "./src/index.ts",
+      "development": "./src/index.ts",
+      "default": "./dist/index.mjs"
+    },
+    "#babel-plugin-debug-object-location/registry": {
+      "types": "./src/registry.ts",
+      "development": "./src/registry.ts",
+      "default": "./dist/registry.mjs"
+    }
+  }
+}
